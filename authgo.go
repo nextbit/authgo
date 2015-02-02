@@ -57,7 +57,7 @@ func CreatePassword(rawPass string) PasswordSalt {
 }
 
 //Test if the the given password match the real user password
-func PasswordMatch(rawPass string, pwSalt PasswordSalt) bool {
+func PasswordMatch(rawPass string, pwSalt *PasswordSalt) bool {
 	hash := hashPassword(pwSalt.Salt, rawPass)
 	return pwSalt.Hash == hash
 }

@@ -30,7 +30,7 @@ func TestCreatePasswordIsDifferent(t *testing.T) {
 func TestPasswordMatchRightPass(t *testing.T) {
 	p := CreatePassword("123456")
 
-	pm := PasswordMatch("123456", p)
+	pm := PasswordMatch("123456", &p)
 	if pm != true {
 		t.Error("Expected true, got", pm)
 	}
@@ -39,7 +39,7 @@ func TestPasswordMatchRightPass(t *testing.T) {
 func TestPasswordMatchWrongPass(t *testing.T) {
 	p := CreatePassword("123456")
 
-	pm := PasswordMatch("654321", p)
+	pm := PasswordMatch("654321", &p)
 	if pm != false {
 		t.Error("Expected false, got", pm)
 	}
